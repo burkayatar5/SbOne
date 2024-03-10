@@ -120,5 +120,6 @@ iOSInjectionProject/
 #Custom ignored files by me
 **/*.plist
 *.entitlements
+*/xcuserdata/*
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,macos

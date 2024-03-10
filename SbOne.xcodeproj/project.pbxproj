@@ -10,7 +10,6 @@
 		483C710C2B9729C0006C1F90 /* LabelWithDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C710B2B9729C0006C1F90 /* LabelWithDotView.swift */; };
 		483C71132B9CA633006C1F90 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C71122B9CA633006C1F90 /* HealthKitManager.swift */; };
 		483C71152B9CB6E8006C1F90 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C71142B9CB6E7006C1F90 /* HealthKitError.swift */; };
-		483C71192B9DF43F006C1F90 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 483C71182B9DF43E006C1F90 /* Info.plist */; };
 		48D6CB9C2B7AF0BB00109506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB9B2B7AF0BB00109506 /* AppDelegate.swift */; };
 		48D6CB9E2B7AF0BB00109506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB9D2B7AF0BB00109506 /* SceneDelegate.swift */; };
 		48D6CBA02B7AF0BB00109506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB9F2B7AF0BB00109506 /* ViewController.swift */; };
@@ -301,7 +300,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				483C71192B9DF43F006C1F90 /* Info.plist in Resources */,
 				48D6CBA82B7AF0C000109506 /* LaunchScreen.storyboard in Resources */,
 				48D6CBEC2B7EA12200109506 /* GoogleService-Info.plist in Resources */,
 				48D6CBA52B7AF0C000109506 /* Assets.xcassets in Resources */,

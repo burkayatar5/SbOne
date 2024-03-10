@@ -118,7 +118,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 #Custom ignored files by me
-*.plist
+**/*.plist
 *.entitlements
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,macos

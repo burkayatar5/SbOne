@@ -57,7 +57,7 @@
 		483C710F2B9C9B39006C1F90 /* SbOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SbOne.entitlements; sourceTree = "<group>"; };
 		483C71122B9CA633006C1F90 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		483C71142B9CB6E7006C1F90 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
-		483C71182B9DF43E006C1F90 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48622F662B9E055800A84A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48D6CB982B7AF0BB00109506 /* SbOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SbOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D6CB9B2B7AF0BB00109506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48D6CB9D2B7AF0BB00109506 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,9 +192,9 @@
 				483C710D2B9C8D83006C1F90 /* Models */,
 				48D6CBF12B8B846D00109506 /* Views */,
 				48D6CBA42B7AF0C000109506 /* Assets.xcassets */,
-				483C71182B9DF43E006C1F90 /* Info.plist */,
 				48D6CBEB2B7EA12200109506 /* GoogleService-Info.plist */,
 				483C710F2B9C9B39006C1F90 /* SbOne.entitlements */,
+				48622F662B9E055800A84A23 /* Info.plist */,
 			);
 			path = SbOne;
 			sourceTree = "<group>";

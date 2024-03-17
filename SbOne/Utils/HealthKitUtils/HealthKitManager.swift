@@ -13,9 +13,7 @@ final class HealthKitManager {
     private let healthStore: HKHealthStore = HKHealthStore()
     
     //HealthStore value types app wants to read
-    //private let activeEnergyBurnedType: HKQuantityType = HKQuantityType(.activeEnergyBurned)
     private let stepCountType: HKQuantityType = HKQuantityType(.stepCount)
-    //private let exerciseTimeType: HKQuantityType = HKQuantityType(.appleExerciseTime)
     private let activitySummaryType: HKActivitySummaryType = HKObjectType.activitySummaryType()
     
     private init() {}
@@ -32,7 +30,6 @@ final class HealthKitManager {
           return
         }
         
-        //let typesToRead: Set<HKObjectType> = [activeEnergyBurnedType, stepCountType, exerciseTimeType, activitySummaryType]
         let typesToRead: Set<HKObjectType> = [stepCountType, activitySummaryType]
         
         healthStore.requestAuthorization(toShare: nil, read: typesToRead) { authorization, error in

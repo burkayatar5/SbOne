@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48298EC82BA5CF0000791FD8 /* ActivitySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48298EC72BA5CF0000791FD8 /* ActivitySummary.swift */; };
+		48298ECA2BA5DCF700791FD8 /* DailySteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48298EC92BA5DCF700791FD8 /* DailySteps.swift */; };
+		48298ECC2BA5DD1F00791FD8 /* CodableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48298ECB2BA5DD1F00791FD8 /* CodableError.swift */; };
 		483C710C2B9729C0006C1F90 /* LabelWithDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C710B2B9729C0006C1F90 /* LabelWithDotView.swift */; };
 		483C71132B9CA633006C1F90 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C71122B9CA633006C1F90 /* HealthKitManager.swift */; };
 		483C71152B9CB6E8006C1F90 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C71142B9CB6E7006C1F90 /* HealthKitError.swift */; };
@@ -53,6 +56,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48298EC72BA5CF0000791FD8 /* ActivitySummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySummary.swift; sourceTree = "<group>"; };
+		48298EC92BA5DCF700791FD8 /* DailySteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySteps.swift; sourceTree = "<group>"; };
+		48298ECB2BA5DD1F00791FD8 /* CodableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableError.swift; sourceTree = "<group>"; };
 		483C710B2B9729C0006C1F90 /* LabelWithDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithDotView.swift; sourceTree = "<group>"; };
 		483C710F2B9C9B39006C1F90 /* SbOne.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SbOne.entitlements; sourceTree = "<group>"; };
 		483C71122B9CA633006C1F90 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
@@ -112,6 +118,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48298ECD2BA7309400791FD8 /* HealthKitModels */ = {
+			isa = PBXGroup;
+			children = (
+				48298EC72BA5CF0000791FD8 /* ActivitySummary.swift */,
+				48298EC92BA5DCF700791FD8 /* DailySteps.swift */,
+			);
+			path = HealthKitModels;
+			sourceTree = "<group>";
+		};
+		48298ECE2BA730A500791FD8 /* CommonModels */ = {
+			isa = PBXGroup;
+			children = (
+				48298ECB2BA5DD1F00791FD8 /* CodableError.swift */,
+			);
+			path = CommonModels;
+			sourceTree = "<group>";
+		};
+		48298ECF2BA730B200791FD8 /* FirebaseModels */ = {
+			isa = PBXGroup;
+			children = (
+				48D6CBED2B875F8F00109506 /* WorkoutTypes.swift */,
+				48D6CBEF2B88D37D00109506 /* Workouts.swift */,
+			);
+			path = FirebaseModels;
+			sourceTree = "<group>";
+		};
 		483C710A2B97297E006C1F90 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +157,9 @@
 		483C710D2B9C8D83006C1F90 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				48D6CBED2B875F8F00109506 /* WorkoutTypes.swift */,
-				48D6CBEF2B88D37D00109506 /* Workouts.swift */,
+				48298ECF2BA730B200791FD8 /* FirebaseModels */,
+				48298ECE2BA730A500791FD8 /* CommonModels */,
+				48298ECD2BA7309400791FD8 /* HealthKitModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,16 +372,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				48D6CBA02B7AF0BB00109506 /* ViewController.swift in Sources */,
+				48298ECC2BA5DD1F00791FD8 /* CodableError.swift in Sources */,
 				48D6CBF02B88D37D00109506 /* Workouts.swift in Sources */,
 				483C71132B9CA633006C1F90 /* HealthKitManager.swift in Sources */,
 				48D6CBEE2B875F8F00109506 /* WorkoutTypes.swift in Sources */,
 				48D6CBFA2B8E581000109506 /* RingView.swift in Sources */,
+				48298EC82BA5CF0000791FD8 /* ActivitySummary.swift in Sources */,
 				48D6CBF82B8B8DF500109506 /* HomeViewController.swift in Sources */,
 				48D6CBFC2B91146300109506 /* ProgressRingView.swift in Sources */,
 				483C710C2B9729C0006C1F90 /* LabelWithDotView.swift in Sources */,
 				48D6CB9C2B7AF0BB00109506 /* AppDelegate.swift in Sources */,
 				48D6CBF62B8B85AC00109506 /* ProfileRowView.swift in Sources */,
 				48D6CB9E2B7AF0BB00109506 /* SceneDelegate.swift in Sources */,
+				48298ECA2BA5DCF700791FD8 /* DailySteps.swift in Sources */,
 				483C71152B9CB6E8006C1F90 /* HealthKitError.swift in Sources */,
 				48D6CBF42B8B859300109506 /* DailyActivityView.swift in Sources */,
 			);

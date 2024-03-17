@@ -12,4 +12,5 @@ enum HealthKitError: Error {
     case notAvailableOnDevice
     case readTypeNotAvailable
     case authorizationFailed(error: Error)
+    case retrievingError(error: Error)
 }

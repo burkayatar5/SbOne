@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol DailyActivityButtonDelegate {
+    func dailyActivityButtonTapped()
+}
+
 class DailyActivityView: UIView {
 
     private var headerLabel: UILabel = UILabel()
+    private var informationButton = InformationButton()
     private var contentView: UIView = UIView()
     
     private var stackView: UIStackView = UIStackView()
@@ -19,16 +24,20 @@ class DailyActivityView: UIView {
     
     private var dailyActivityRing: ProgressRingView = ProgressRingView()
     
+    var dailyActivityButtonDelegate: DailyActivityButtonDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureMainView()
         configureHeaderLabel()
+        configureInformationButton()
         configureContentView()
         configureStackView()
         configureActivityRing()
         configureConstraints()
     }
     
+    //TODO: - For later use
     //dot rengi ile activityRing rengi uyuşmalı init'te bir renk al ve ikisine de ver
     //renkler için bir enum oluştur ve renkleri oraya ver oradan uygulama geneli kullanabilinsin dark mode uyumluluğu içinde kullanışlı
     
@@ -48,6 +57,11 @@ class DailyActivityView: UIView {
         headerLabel.text = "Daily Activities"
         
         addSubview(headerLabel)
+    }
+    
+    private func configureInformationButton() {
+        informationButton.informationButtonDelegate = self
+        addSubview(informationButton)
     }
     
     private func configureContentView() {
@@ -92,6 +106,9 @@ class DailyActivityView: UIView {
             headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             
+            informationButton.leadingAnchor.constraint(equalTo: headerLabel.trailingAnchor, constant: 5),
+            informationButton.centerYAnchor.constraint(equalTo: headerLabel.centerYAnchor),
+            
             contentView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 5),
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -119,5 +136,11 @@ class DailyActivityView: UIView {
         stackView.setContentHuggingPriority(.defaultHigh, for: .vertical)
         stackView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
+    }
+}
+
+extension DailyActivityView: InformationButtonDelegate {
+    func informativeButtonTapped() {
+        dailyActivityButtonDelegate?.dailyActivityButtonTapped()
     }
 }

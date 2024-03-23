@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		481C1F402BA8D14D0073AC16 /* InformationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481C1F3F2BA8D14D0073AC16 /* InformationButton.swift */; };
+		481C1F442BAF5EF30073AC16 /* DailyChallengesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481C1F432BAF5EF30073AC16 /* DailyChallengesView.swift */; };
 		48298EC82BA5CF0000791FD8 /* ActivitySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48298EC72BA5CF0000791FD8 /* ActivitySummary.swift */; };
 		48298ECA2BA5DCF700791FD8 /* DailySteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48298EC92BA5DCF700791FD8 /* DailySteps.swift */; };
 		48298ECC2BA5DD1F00791FD8 /* CodableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48298ECB2BA5DD1F00791FD8 /* CodableError.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		481C1F3F2BA8D14D0073AC16 /* InformationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationButton.swift; sourceTree = "<group>"; };
+		481C1F432BAF5EF30073AC16 /* DailyChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChallengesView.swift; sourceTree = "<group>"; };
 		48298EC72BA5CF0000791FD8 /* ActivitySummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySummary.swift; sourceTree = "<group>"; };
 		48298EC92BA5DCF700791FD8 /* DailySteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySteps.swift; sourceTree = "<group>"; };
 		48298ECB2BA5DD1F00791FD8 /* CodableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableError.swift; sourceTree = "<group>"; };
@@ -239,8 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				483C710A2B97297E006C1F90 /* CustomViews */,
-				48D6CBF32B8B859200109506 /* DailyActivityView.swift */,
 				48D6CBF52B8B85AC00109506 /* ProfileRowView.swift */,
+				48D6CBF32B8B859200109506 /* DailyActivityView.swift */,
+				481C1F432BAF5EF30073AC16 /* DailyChallengesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				48298ECC2BA5DD1F00791FD8 /* CodableError.swift in Sources */,
 				48D6CBF02B88D37D00109506 /* Workouts.swift in Sources */,
 				483C71132B9CA633006C1F90 /* HealthKitManager.swift in Sources */,
+				481C1F442BAF5EF30073AC16 /* DailyChallengesView.swift in Sources */,
 				48D6CBEE2B875F8F00109506 /* WorkoutTypes.swift in Sources */,
 				48D6CBFA2B8E581000109506 /* RingView.swift in Sources */,
 				48298EC82BA5CF0000791FD8 /* ActivitySummary.swift in Sources */,

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481C1F402BA8D14D0073AC16 /* InformationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481C1F3F2BA8D14D0073AC16 /* InformationButton.swift */; };
 		48298EC82BA5CF0000791FD8 /* ActivitySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48298EC72BA5CF0000791FD8 /* ActivitySummary.swift */; };
 		48298ECA2BA5DCF700791FD8 /* DailySteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48298EC92BA5DCF700791FD8 /* DailySteps.swift */; };
 		48298ECC2BA5DD1F00791FD8 /* CodableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48298ECB2BA5DD1F00791FD8 /* CodableError.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		481C1F3F2BA8D14D0073AC16 /* InformationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationButton.swift; sourceTree = "<group>"; };
 		48298EC72BA5CF0000791FD8 /* ActivitySummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySummary.swift; sourceTree = "<group>"; };
 		48298EC92BA5DCF700791FD8 /* DailySteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySteps.swift; sourceTree = "<group>"; };
 		48298ECB2BA5DD1F00791FD8 /* CodableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableError.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				48D6CBF92B8E581000109506 /* RingView.swift */,
 				48D6CBFB2B91146200109506 /* ProgressRingView.swift */,
 				483C710B2B9729C0006C1F90 /* LabelWithDotView.swift */,
+				481C1F3F2BA8D14D0073AC16 /* InformationButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				48D6CBF62B8B85AC00109506 /* ProfileRowView.swift in Sources */,
 				48D6CB9E2B7AF0BB00109506 /* SceneDelegate.swift in Sources */,
 				48298ECA2BA5DCF700791FD8 /* DailySteps.swift in Sources */,
+				481C1F402BA8D14D0073AC16 /* InformationButton.swift in Sources */,
 				483C71152B9CB6E8006C1F90 /* HealthKitError.swift in Sources */,
 				48D6CBF42B8B859300109506 /* DailyActivityView.swift in Sources */,
 			);

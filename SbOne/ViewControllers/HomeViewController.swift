@@ -17,8 +17,31 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        dailyActivityView.dailyActivityButtonDelegate = self
         profileRowView = ProfileRowView(profileImage: nil, userName: "Burkay Atar")
         configureViewController()
+        HealthKitManager.shared.requestAuthorization { result in
+            switch result {
+            case .success(let bool):
+                print("\(bool)")
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        HealthKitManager.shared.retrieveDailyStepCount { data in
+            if let customError = data.error {
+                print("\(customError.errorDescription)")
+            } else if data.stepCount == 0 {
+                print("Data equals to 0")
+            } else {
+                print("Step count: \(data.stepCount)")
+            }
+        }
+        
+        HealthKitManager.shared.retrieveActivitySummary { double in
+            print("summary: \(double)")
+        }
         
     }
     
@@ -41,4 +64,15 @@ class HomeViewController: UIViewController {
         
     }
 
+}
+
+extension HomeViewController: DailyActivityButtonDelegate {
+    func dailyActivityButtonTapped() {
+        let alertController = UIAlertController(title: "Info",
+                                                message: "If one or more values in Daily Activity list is 0 please check if you give app the permisson to read your health data or if you have any available data for today.",
+                                                preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

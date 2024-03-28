@@ -7,69 +7,30 @@
 
 import UIKit
 
-protocol DailyActivityButtonDelegate {
-    func dailyActivityButtonTapped()
-}
-
-class DailyActivityView: UIView {
-
-    private var headerLabel: UILabel = UILabel()
-    private var informationButton = InformationButton()
-    private var contentView: UIView = UIView()
-    
+class DailyActivityView: DailyView {
     private var stackView: UIStackView = UIStackView()
-    private var dailyCaloriesLabel: LabelWithDotView = LabelWithDotView(color: .systemGreen)
-    private var dailyWorkoutLabel: LabelWithDotView = LabelWithDotView(color: .systemOrange)
-    private var dailyStepsLabel: LabelWithDotView = LabelWithDotView(color: .systemRed)
+    private var dailyCaloriesLabel: LabelWithDotView
+    private var dailyWorkoutLabel: LabelWithDotView
+    private var dailyStepsLabel: LabelWithDotView
     
-    private var dailyActivityRing: ProgressRingView = ProgressRingView()
+    private var dailyActivityRing: ProgressRingView
     
-    var dailyActivityButtonDelegate: DailyActivityButtonDelegate?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configureMainView()
-        configureHeaderLabel()
-        configureInformationButton()
-        configureContentView()
+    init(headerLabel: String, buttonType: InformationButtonType, buttonName: String, buttonTag: Int, caloriesColor: UIColor, workoutColor: UIColor, stepsColor: UIColor) {
+        
+        dailyCaloriesLabel = LabelWithDotView(color: caloriesColor)
+        dailyWorkoutLabel = LabelWithDotView(color: workoutColor)
+        dailyStepsLabel = LabelWithDotView(color: stepsColor)
+        dailyActivityRing = ProgressRingView(outerRingColor: caloriesColor, middleRingColor: workoutColor, innerRingColor: stepsColor)
+        
+        super.init(headerLabel: headerLabel, buttonType: buttonType, buttonName: buttonName, buttonTag: buttonTag)
+        
         configureStackView()
         configureActivityRing()
         configureConstraints()
     }
     
-    //TODO: - For later use
-    //dot rengi ile activityRing rengi uyuşmalı init'te bir renk al ve ikisine de ver
-    //renkler için bir enum oluştur ve renkleri oraya ver oradan uygulama geneli kullanabilinsin dark mode uyumluluğu içinde kullanışlı
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configureMainView() {
-        backgroundColor = .clear
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func configureHeaderLabel() {
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerLabel.font = UIFont.systemFont(ofSize: 21, weight: .heavy)
-        headerLabel.textAlignment = .left
-        headerLabel.text = "Daily Activities"
-        
-        addSubview(headerLabel)
-    }
-    
-    private func configureInformationButton() {
-        informationButton.informationButtonDelegate = self
-        addSubview(informationButton)
-    }
-    
-    private func configureContentView() {
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.backgroundColor = .secondarySystemGroupedBackground
-        contentView.layer.cornerRadius = 10
-        
-        addSubview(contentView)
     }
     
     private func configureStackView() {
@@ -102,18 +63,7 @@ class DailyActivityView: UIView {
     }
     
     private func configureConstraints() {
-        NSLayoutConstraint.activate([
-            headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            
-            informationButton.leadingAnchor.constraint(equalTo: headerLabel.trailingAnchor, constant: 5),
-            informationButton.centerYAnchor.constraint(equalTo: headerLabel.centerYAnchor),
-            
-            contentView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 5),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
+        NSLayoutConstraint.activate([            
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
@@ -122,12 +72,21 @@ class DailyActivityView: UIView {
             dailyActivityRing.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             dailyActivityRing.leadingAnchor.constraint(equalTo: stackView.trailingAnchor),
             dailyActivityRing.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-            dailyActivityRing.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            dailyActivityRing.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            
+            dailyCaloriesLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            dailyCaloriesLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            
+            dailyWorkoutLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            dailyWorkoutLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            
+            dailyStepsLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            dailyStepsLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
         ])
         
-        dailyCaloriesLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1, constant: -10).isActive = true
-        dailyWorkoutLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1, constant: -10).isActive = true
-        dailyStepsLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1, constant: -10).isActive = true
+        dailyCaloriesLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1, constant: 0).isActive = true
+        dailyWorkoutLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1, constant: 0).isActive = true
+        dailyStepsLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1, constant: 0).isActive = true
         
         dailyCaloriesLabel.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.3).isActive = true
         dailyWorkoutLabel.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.3).isActive = true
@@ -136,11 +95,5 @@ class DailyActivityView: UIView {
         stackView.setContentHuggingPriority(.defaultHigh, for: .vertical)
         stackView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
-    }
-}
-
-extension DailyActivityView: InformationButtonDelegate {
-    func informativeButtonTapped() {
-        dailyActivityButtonDelegate?.dailyActivityButtonTapped()
     }
 }

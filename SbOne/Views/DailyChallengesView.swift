@@ -7,65 +7,27 @@
 
 import UIKit
 
-class DailyChallengesView: UIView {
+class DailyChallengesView: DailyView {
 
-    private var headerLabel: UILabel = UILabel()
-    private var seeAllButton: UIButton = UIButton()
-    private var contentView: UIView = UIView()
+    private var label: UILabel = UILabel()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configureMainView()
-        configureHeaderLabel()
-        configureSeeAllButton()
-        configureContentView()
+    init(headerLabel: String, buttonType: InformationButtonType, buttonName: String, buttonTag: Int, labelText: String) {
+        super.init(headerLabel: headerLabel, buttonType: buttonType, buttonName: buttonName, buttonTag: buttonTag)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = labelText
+        label.textColor = .cyan
+        contentView.addSubview(label)
         configureConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func configureMainView() {
-        backgroundColor = .clear
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func configureHeaderLabel() {
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerLabel.backgroundColor = .clear
-        headerLabel.font = UIFont.systemFont(ofSize: 21, weight: .heavy)
-        headerLabel.textAlignment = .left
-        headerLabel.text = "Daily Challenges"
-        
-        addSubview(headerLabel)
-    }
-    
-    private func configureSeeAllButton() {
-        seeAllButton.translatesAutoresizingMaskIntoConstraints = false
-        seeAllButton.setTitle("Title", for: .normal)
-        addSubview(seeAllButton)
-    }
-    
-    private func configureContentView() {
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.backgroundColor = .secondarySystemGroupedBackground
-        contentView.layer.cornerRadius = 10
-        addSubview(contentView)
-    }
-    
+
     private func configureConstraints() {
         NSLayoutConstraint.activate([
-            headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            
-            seeAllButton.leadingAnchor.constraint(equalTo: headerLabel.trailingAnchor, constant: 5),
-            seeAllButton.centerYAnchor.constraint(equalTo: headerLabel.centerYAnchor),
-            
-            contentView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 5),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            label.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
     

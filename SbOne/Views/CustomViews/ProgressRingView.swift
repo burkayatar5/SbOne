@@ -15,10 +15,17 @@ class ProgressRingView: UIView {
     private var middleRingView: RingView = RingView()
     private var innerRingView: RingView = RingView()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private var outerRingColor: UIColor
+    private var middleRingColor: UIColor
+    private var innerRingColor: UIColor
+    
+    init(outerRingColor: UIColor, middleRingColor: UIColor, innerRingColor: UIColor) {
+        self.outerRingColor = outerRingColor
+        self.middleRingColor = middleRingColor
+        self.innerRingColor = innerRingColor
+        super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        setupRings()
+        setupRings(outerRingColor: self.outerRingColor, middleRingColor: self.middleRingColor, innerRingColor: self.innerRingColor)
     }
     
     required init?(coder: NSCoder) {
@@ -27,10 +34,10 @@ class ProgressRingView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupRings()
+        setupRings(outerRingColor: self.outerRingColor, middleRingColor: self.middleRingColor, innerRingColor: self.innerRingColor)
     }
     
-    private func setupRings() {
+    private func setupRings(outerRingColor: UIColor, middleRingColor: UIColor, innerRingColor: UIColor) {
         let outerRingRadius = min(bounds.width, bounds.height) / 2.0
         let middleRingRadius = outerRingRadius * 0.75
         let innerRingRadius = outerRingRadius / 2.0
@@ -40,7 +47,7 @@ class ProgressRingView: UIView {
         outerRingView.frame = bounds
         outerRingView.radius = outerRingRadius
         outerRingView.backgroundRingColor = .systemGray2
-        outerRingView.foregroundRingColor = .systemGreen
+        outerRingView.foregroundRingColor = outerRingColor
         outerRingView.ringWidth = 10.0
         addSubview(outerRingView)
         
@@ -49,7 +56,7 @@ class ProgressRingView: UIView {
         middleRingView.frame = bounds
         middleRingView.radius = middleRingRadius
         middleRingView.backgroundRingColor = .systemGray2
-        middleRingView.foregroundRingColor = .systemBlue
+        middleRingView.foregroundRingColor = middleRingColor
         middleRingView.ringWidth = 10.0
         addSubview(middleRingView)
         
@@ -58,7 +65,7 @@ class ProgressRingView: UIView {
         innerRingView.frame = bounds
         innerRingView.radius = innerRingRadius
         innerRingView.backgroundRingColor = .systemGray2
-        innerRingView.foregroundRingColor = .systemRed
+        innerRingView.foregroundRingColor = innerRingColor
         innerRingView.ringWidth = 10.0
         addSubview(innerRingView)
     }
